@@ -6,7 +6,7 @@ output: github_document
 ---
 
 ```{r setup, echo=FALSE}
-knitr::opts_chunk$set(fig.path = "~/README_files/figure-gfm/")
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 ```
 
@@ -42,7 +42,8 @@ library(dplyr)
 #Store the apiKey first
 apikey <- "2dcd260a1aa14ce582831edb99088af2"
 
-#I want to get a data that the max calories is less or equal than 666 since a person need 2000 calories a day, each meal should be around 666 calories. And I also want to set the min value of carbs, fat and protein to 75g, 14g and 16g. These values calculated base on the least proportion of each nutrient that we need a meal
+#I want to get a data that the max calories is less or equal than 666 since a person need 2000 calories a day, each meal should be around 666 calories.   
+#And I also want to set the min value of carbs, fat and protein to 75g, 14g and 16g. These values calculated base on the least proportion of each nutrient that we need a meal
 nutrient_data <- get_recipes_data(apikey, c("maxCalories=666","minCrabs=75","minFat=14","minProtein=1"))
 nutrient_data <- nutrient_data %>%
   select(-imageType, -image)
@@ -78,6 +79,8 @@ nutrient_data$protein_type <-
 subset(nutrient_data, carbs_type == "normal carbs" &
          fat_type == "normal fat" &
          protein_type == "normal protein")
+
+#only Greek Shrimp Orzo and Soft-Baked Pretzels are meet the requirement that has enough nutrient and calories for a meal. 
 ```
 
 ## Contingency tables
@@ -99,15 +102,21 @@ ggplot(nutrient_data, aes(x = carbs_type)) +
   labs(x = "Carbs Type", 
        title = "Bar Plot of the Level of Carbs for the Recipes")
 
+#only one of the recipes that has high carbs
+
 ggplot(nutrient_data, aes(x = fat_type)) +
   geom_bar() +
   labs(x = "Fat Type", 
        title = "Bar Plot of the Level of Fat for the Recipes")
 
+#two of the recipes that has high fat
+
 ggplot(nutrient_data, aes(x = protein_type)) +
   geom_bar() +
   labs(x = "Protein Type", 
        title = "Bar Plot of the Level of Protein for the Recipes")
+
+#three of the recipes that has high protein
 
 #histogram
 ggplot(nutrient_data, aes(x = carbs_prop)) + 
@@ -153,4 +162,6 @@ ggplot(nutrient_data, aes(x = fat_type, y = protein_type)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         strip.text = element_text(size = 5)) +
   facet_wrap(~ title)
+
+#From the scatterplot, we can get the name of the recipes with each nutrients level, the Trinidadian Chicken Potato Curry is both high in fat and protein but low in carbs which I think it is really interesting that can be low at carbs but high in both fat and protein. It may really good for someone who is keto diet. 
 ```
