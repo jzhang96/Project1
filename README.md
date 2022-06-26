@@ -12,7 +12,17 @@ packages.
 
 ``` r
 library(httr)
+```
+
+    ## Warning: package 'httr' was built under R version 4.1.3
+
+``` r
 library(jsonlite)
+```
+
+    ## Warning: package 'jsonlite' was built under R version 4.1.3
+
+``` r
 get_recipes_data <- function(apikey, parameters, ...){
   if (is.null(parameters)) {
     apiurl <-
@@ -37,6 +47,22 @@ get_recipes_data <- function(apikey, parameters, ...){
 
 ``` r
 library(dplyr)
+```
+
+    ## Warning: package 'dplyr' was built under R version 4.1.3
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
 #Store the apiKey first
 apikey <- "2dcd260a1aa14ce582831edb99088af2"
 
@@ -79,15 +105,12 @@ subset(nutrient_data, carbs_type == "normal carbs" &
          protein_type == "normal protein")
 ```
 
-    ##       id               title calories protein fat carbs
-    ## 4 645354   Greek Shrimp Orzo      558      29  28    47
-    ## 8 660525 Soft-Baked Pretzels      376       7  22    41
-    ##   carbs_prop  fat_prop protein_prop   carbs_type   fat_type
-    ## 4  0.4519231 0.2692308    0.2788462 normal carbs normal fat
-    ## 8  0.5857143 0.3142857    0.1000000 normal carbs normal fat
-    ##     protein_type
-    ## 4 normal protein
-    ## 8 normal protein
+    ##       id               title calories protein fat carbs carbs_prop  fat_prop
+    ## 4 645354   Greek Shrimp Orzo      558      29  28    47  0.4519231 0.2692308
+    ## 8 660525 Soft-Baked Pretzels      376       7  22    41  0.5857143 0.3142857
+    ##   protein_prop   carbs_type   fat_type   protein_type
+    ## 4    0.2788462 normal carbs normal fat normal protein
+    ## 8    0.1000000 normal carbs normal fat normal protein
 
 ## Contingency tables
 
@@ -461,6 +484,37 @@ table(nutrient_data$title, nutrient_data$protein_type, nutrient_data$fat_type)
 
 ``` r
 library(tidyverse)
+```
+
+    ## Warning: package 'tidyverse' was built under R version 4.1.3
+
+    ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+
+    ## v ggplot2 3.3.6     v purrr   0.3.4
+    ## v tibble  3.1.7     v stringr 1.4.0
+    ## v tidyr   1.2.0     v forcats 0.5.1
+    ## v readr   2.1.2
+
+    ## Warning: package 'ggplot2' was built under R version 4.1.3
+
+    ## Warning: package 'tibble' was built under R version 4.1.3
+
+    ## Warning: package 'tidyr' was built under R version 4.1.3
+
+    ## Warning: package 'readr' was built under R version 4.1.3
+
+    ## Warning: package 'purrr' was built under R version 4.1.3
+
+    ## Warning: package 'stringr' was built under R version 4.1.3
+
+    ## Warning: package 'forcats' was built under R version 4.1.3
+
+    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+    ## x dplyr::filter()  masks stats::filter()
+    ## x purrr::flatten() masks jsonlite::flatten()
+    ## x dplyr::lag()     masks stats::lag()
+
+``` r
 #barplot
 ggplot(nutrient_data, aes(x = carbs_type)) +
   geom_bar() +
