@@ -3,10 +3,6 @@ Project 1
 Jiyue Zhang
 2022-06-21
 
-``` r
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.path = "../README_files/")
-```
-
 # Required Packages to run the vignette
 
 We will need `httr`, `jsonlit`, `dplyr`, `tidyverse`, `stringr`
