@@ -3,6 +3,10 @@ Project 1
 Jiyue Zhang
 2022-06-21
 
+``` r
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 # Required Packages to run the vignette
 
 We will need `httr`, `jsonlit`, `dplyr`, `tidyverse`, `stringr`
@@ -12,17 +16,7 @@ packages.
 
 ``` r
 library(httr)
-```
-
-    ## Warning: package 'httr' was built under R version 4.1.3
-
-``` r
 library(jsonlite)
-```
-
-    ## Warning: package 'jsonlite' was built under R version 4.1.3
-
-``` r
 get_recipes_data <- function(apikey, parameters, ...){
   if (is.null(parameters)) {
     apiurl <-
@@ -47,22 +41,6 @@ get_recipes_data <- function(apikey, parameters, ...){
 
 ``` r
 library(dplyr)
-```
-
-    ## Warning: package 'dplyr' was built under R version 4.1.3
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 #Store the apiKey first
 apikey <- "2dcd260a1aa14ce582831edb99088af2"
 
@@ -484,37 +462,6 @@ table(nutrient_data$title, nutrient_data$protein_type, nutrient_data$fat_type)
 
 ``` r
 library(tidyverse)
-```
-
-    ## Warning: package 'tidyverse' was built under R version 4.1.3
-
-    ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
-
-    ## v ggplot2 3.3.6     v purrr   0.3.4
-    ## v tibble  3.1.7     v stringr 1.4.0
-    ## v tidyr   1.2.0     v forcats 0.5.1
-    ## v readr   2.1.2
-
-    ## Warning: package 'ggplot2' was built under R version 4.1.3
-
-    ## Warning: package 'tibble' was built under R version 4.1.3
-
-    ## Warning: package 'tidyr' was built under R version 4.1.3
-
-    ## Warning: package 'readr' was built under R version 4.1.3
-
-    ## Warning: package 'purrr' was built under R version 4.1.3
-
-    ## Warning: package 'stringr' was built under R version 4.1.3
-
-    ## Warning: package 'forcats' was built under R version 4.1.3
-
-    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-    ## x dplyr::filter()  masks stats::filter()
-    ## x purrr::flatten() masks jsonlite::flatten()
-    ## x dplyr::lag()     masks stats::lag()
-
-``` r
 #barplot
 ggplot(nutrient_data, aes(x = carbs_type)) +
   geom_bar() +
@@ -522,7 +469,7 @@ ggplot(nutrient_data, aes(x = carbs_type)) +
        title = "Bar Plot of the Level of Carbs for the Recipes")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = fat_type)) +
@@ -531,7 +478,7 @@ ggplot(nutrient_data, aes(x = fat_type)) +
        title = "Bar Plot of the Level of Fat for the Recipes")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = protein_type)) +
@@ -540,7 +487,7 @@ ggplot(nutrient_data, aes(x = protein_type)) +
        title = "Bar Plot of the Level of Protein for the Recipes")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
 
 ``` r
 #histogram
@@ -549,7 +496,7 @@ ggplot(nutrient_data, aes(x = carbs_prop)) +
   labs(x = "Carbs", title = "Histogram of the Proportion of Carbs for the Recipes")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = fat_prop)) + 
@@ -557,7 +504,7 @@ ggplot(nutrient_data, aes(x = fat_prop)) +
   labs(x = "Fat", title = "Histogram of the Proportion of Fat for the Recipes")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-5.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-5.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = protein_prop)) + 
@@ -565,7 +512,7 @@ ggplot(nutrient_data, aes(x = protein_prop)) +
   labs(x = "Protein", title = "Histogram of the Proportion of Protein for the Recipes")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-6.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-6.png)<!-- -->
 
 ``` r
 #box plot
@@ -574,7 +521,7 @@ ggplot(nutrient_data, aes(x = carbs_type, y = carbs_prop)) +
   labs(x = "Level of Carbs", title = "Boxplot of the proprtion of carbs base on carbs type")
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-7.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-7.png)<!-- -->
 
 ``` r
 #scatter plot
@@ -589,7 +536,7 @@ ggplot(nutrient_data, aes(x = carbs_type, y = fat_type)) +
   facet_wrap(~ title)
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-8.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-8.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = carbs_type, y = protein_type)) +
@@ -601,7 +548,7 @@ ggplot(nutrient_data, aes(x = carbs_type, y = protein_type)) +
   facet_wrap(~ title)
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-9.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-9.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = fat_type, y = protein_type)) +
@@ -613,4 +560,4 @@ ggplot(nutrient_data, aes(x = fat_type, y = protein_type)) +
   facet_wrap(~ title)
 ```
 
-![](../README_files/figure-gfm/unnamed-chunk-5-10.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-10.png)<!-- -->
