@@ -80,15 +80,12 @@ subset(nutrient_data, carbs_type == "normal carbs" &
          protein_type == "normal protein")
 ```
 
-    ##       id               title calories protein fat carbs
-    ## 4 645354   Greek Shrimp Orzo      558      29  28    47
-    ## 8 660525 Soft-Baked Pretzels      376       7  22    41
-    ##   carbs_prop  fat_prop protein_prop   carbs_type   fat_type
-    ## 4  0.4519231 0.2692308    0.2788462 normal carbs normal fat
-    ## 8  0.5857143 0.3142857    0.1000000 normal carbs normal fat
-    ##     protein_type
-    ## 4 normal protein
-    ## 8 normal protein
+    ##       id               title calories protein fat carbs carbs_prop  fat_prop
+    ## 4 645354   Greek Shrimp Orzo      558      29  28    47  0.4519231 0.2692308
+    ## 8 660525 Soft-Baked Pretzels      376       7  22    41  0.5857143 0.3142857
+    ##   protein_prop   carbs_type   fat_type   protein_type
+    ## 4    0.2788462 normal carbs normal fat normal protein
+    ## 8    0.1000000 normal carbs normal fat normal protein
 
 ``` r
 #only Greek Shrimp Orzo and Soft-Baked Pretzels are meet the requirement that has enough nutrient and calories for a meal. 
@@ -473,7 +470,7 @@ ggplot(nutrient_data, aes(x = carbs_type)) +
        title = "Bar Plot of the Level of Carbs for the Recipes")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 #only one of the recipes that has high carbs
@@ -484,7 +481,7 @@ ggplot(nutrient_data, aes(x = fat_type)) +
        title = "Bar Plot of the Level of Fat for the Recipes")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
 ``` r
 #two of the recipes that has high fat
@@ -495,7 +492,7 @@ ggplot(nutrient_data, aes(x = protein_type)) +
        title = "Bar Plot of the Level of Protein for the Recipes")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
 
 ``` r
 #three of the recipes that has high protein
@@ -506,7 +503,7 @@ ggplot(nutrient_data, aes(x = carbs_prop)) +
   labs(x = "Carbs", title = "Histogram of the Proportion of Carbs for the Recipes")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = fat_prop)) + 
@@ -514,7 +511,7 @@ ggplot(nutrient_data, aes(x = fat_prop)) +
   labs(x = "Fat", title = "Histogram of the Proportion of Fat for the Recipes")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-5.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-5.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = protein_prop)) + 
@@ -522,7 +519,7 @@ ggplot(nutrient_data, aes(x = protein_prop)) +
   labs(x = "Protein", title = "Histogram of the Proportion of Protein for the Recipes")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-6.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-6.png)<!-- -->
 
 ``` r
 #box plot
@@ -531,7 +528,7 @@ ggplot(nutrient_data, aes(x = carbs_type, y = carbs_prop)) +
   labs(x = "Level of Carbs", title = "Boxplot of the proprtion of carbs base on carbs type")
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-7.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-7.png)<!-- -->
 
 ``` r
 #scatter plot
@@ -546,7 +543,7 @@ ggplot(nutrient_data, aes(x = carbs_type, y = fat_type)) +
   facet_wrap(~ title)
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-8.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-8.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = carbs_type, y = protein_type)) +
@@ -558,7 +555,7 @@ ggplot(nutrient_data, aes(x = carbs_type, y = protein_type)) +
   facet_wrap(~ title)
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-9.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-9.png)<!-- -->
 
 ``` r
 ggplot(nutrient_data, aes(x = fat_type, y = protein_type)) +
@@ -570,7 +567,7 @@ ggplot(nutrient_data, aes(x = fat_type, y = protein_type)) +
   facet_wrap(~ title)
 ```
 
-![](C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/unnamed-chunk-5-10.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-10.png)<!-- -->
 
 ``` r
 #From the scatterplot, we can get the name of the recipes with each nutrients level, the Trinidadian Chicken Potato Curry is both high in fat and protein but low in carbs which I think it is really interesting that can be low at carbs but high in both fat and protein. It may really good for someone who is keto diet. 
