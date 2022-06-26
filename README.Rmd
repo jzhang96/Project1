@@ -6,9 +6,8 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.path = "../README_files/")
 
-knitr::opts_chunk$set(fig.path = "../README_files/")
 ```
 
 # Required Packages to run the vignette
