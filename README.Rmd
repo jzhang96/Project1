@@ -6,8 +6,7 @@ output: github_document
 ---
 
 ```{r setup, echo=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
-                      file.path(".../README_files/"))
+knitr::opts_chunk$set(fig.path = "C:/Users/LAILA/Desktop/558/git/project1/Project1/README_files/figure-gfm/")
 
 ```
 
