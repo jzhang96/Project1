@@ -6,7 +6,8 @@ output: github_document
 ---
 
 ```{r setup, echo=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      file.path(".../README_files/"))
 
 ```
 
