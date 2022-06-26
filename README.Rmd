@@ -14,7 +14,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 We will need `httr`, `jsonlit`, `dplyr`, `tidyverse`, `stringr` packages. 
 
 # create the function to get data from food api
-```{r}
+```{r create}
 library(httr)
 library(jsonlite)
 get_recipes_data <- function(apikey, parameters, ...){
@@ -37,7 +37,7 @@ get_recipes_data <- function(apikey, parameters, ...){
 
 # Basic exploratory data analysis
 ## Get data
-```{r}
+```{r data}
 library(dplyr)
 #Store the apiKey first
 apikey <- "2dcd260a1aa14ce582831edb99088af2"
@@ -50,7 +50,7 @@ nutrient_data <- nutrient_data %>%
 ```
 
 ## Numeric summaries
-```{r}
+```{r numeric}
 nutrient_data$carbs <- as.numeric(gsub("g", " ", nutrient_data$carbs))
 nutrient_data$fat <- as.numeric(gsub("g", " ", nutrient_data$fat))
 nutrient_data$protein <- as.numeric(gsub("g", " ", nutrient_data$protein))
@@ -84,7 +84,7 @@ subset(nutrient_data, carbs_type == "normal carbs" &
 ```
 
 ## Contingency tables
-```{r}
+```{r table}
 #The recipes that with crabs type and fat type
 table(nutrient_data$title, nutrient_data$carbs_type, nutrient_data$fat_type)
 #The recipes that with crabs type and protein type
@@ -94,7 +94,7 @@ table(nutrient_data$title, nutrient_data$protein_type, nutrient_data$fat_type)
 ```
 
 ## plot
-```{r}
+```{r plot}
 library(tidyverse)
 #barplot
 ggplot(nutrient_data, aes(x = carbs_type)) +
