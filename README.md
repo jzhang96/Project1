@@ -80,12 +80,15 @@ subset(nutrient_data, carbs_type == "normal carbs" &
          protein_type == "normal protein")
 ```
 
-    ##       id               title calories protein fat carbs carbs_prop  fat_prop
-    ## 4 645354   Greek Shrimp Orzo      558      29  28    47  0.4519231 0.2692308
-    ## 8 660525 Soft-Baked Pretzels      376       7  22    41  0.5857143 0.3142857
-    ##   protein_prop   carbs_type   fat_type   protein_type
-    ## 4    0.2788462 normal carbs normal fat normal protein
-    ## 8    0.1000000 normal carbs normal fat normal protein
+    ##       id               title calories protein fat carbs
+    ## 4 645354   Greek Shrimp Orzo      558      29  28    47
+    ## 8 660525 Soft-Baked Pretzels      376       7  22    41
+    ##   carbs_prop  fat_prop protein_prop   carbs_type   fat_type
+    ## 4  0.4519231 0.2692308    0.2788462 normal carbs normal fat
+    ## 8  0.5857143 0.3142857    0.1000000 normal carbs normal fat
+    ##     protein_type
+    ## 4 normal protein
+    ## 8 normal protein
 
 ``` r
 #only Greek Shrimp Orzo and Soft-Baked Pretzels are meet the requirement that has enough nutrient and calories for a meal. 
