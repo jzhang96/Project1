@@ -34,6 +34,13 @@ get_recipes_data <- function(apikey, parameters, ...){
   return(parsed)
 }
 ```
+# How to use this function?
+The input part of "parameters" you could modify these parameters: minCarbs, maxCarbs, minFat, maxFat,
+minProtein, maxProtein, minCalories, maxCalories.  
+
+You will need to input these modifications as a list, in this way: 
+for example, if you want to get the recipes that have max 500 calories, min 30 protein and max 20 fat then input c("maxCalories=500", "minProtein=30", "maxFat=20").
+(hints, it is case sensitive but it doesn't matter you type as "maxCalories=500" or "maxCalories = 500")
 
 # Basic exploratory data analysis
 ## Get data
